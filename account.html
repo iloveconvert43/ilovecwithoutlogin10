@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<title>Account Settings — iLoveConvert</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23e53e3e'/><stop offset='100%25' stop-color='%237c3aed'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='url(%23g)'/><text y='.9em' font-size='66' x='17'>❤️</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script>(function(){var t=localStorage.getItem('ilc_theme')||'dark';document.documentElement.setAttribute('data-theme',t);})()</script>
+<style>
+:root{--bg:#050508;--bg2:#0a0a10;--bg3:#0f0f18;--brd:rgba(255,255,255,.08);--brd2:rgba(255,255,255,.12);--txt:#eeeef5;--txt2:#8888a8;--txt3:#444460;--acc:#e53e3e;--acc2:#7c3aed;--grad:linear-gradient(135deg,#e53e3e,#7c3aed)}
+[data-theme="light"]{--bg:#f7f8fc;--bg2:#fff;--bg3:#f0f1f8;--brd:rgba(18,19,42,.08);--brd2:rgba(18,19,42,.14);--txt:#12132a;--txt2:#52546e;--txt3:#9699b8}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Plus Jakarta Sans',system-ui,sans-serif;min-height:100vh}
+.i-site-nav{display:flex;align-items:center;gap:10px;padding:0 20px;position:sticky;top:0;z-index:1000;height:62px;background:rgba(5,5,8,.96);border-bottom:1px solid var(--brd);backdrop-filter:blur(20px)}
+[data-theme="light"] .i-site-nav{background:rgba(247,248,252,.97)}
+.i-logo{display:flex;align-items:center;gap:8px;font-family:'Syne',system-ui,sans-serif;font-size:1.05rem;font-weight:800;text-decoration:none;flex-shrink:0}
+.i-logo-mark{width:30px;height:30px;border-radius:8px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.i-logo-txt{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-tabs{display:flex;align-items:center;gap:4px}
+.nav-tab{padding:6px 13px;border-radius:8px;font-size:.77rem;font-weight:600;color:var(--txt2);text-decoration:none;transition:.18s}
+.nav-tab:hover{background:rgba(255,255,255,.07);color:var(--txt)}
+.nav-tab.cur{background:rgba(255,255,255,.1);color:var(--txt)}
+[data-theme="light"] .nav-tab:hover,[data-theme="light"] .nav-tab.cur{background:rgba(18,19,42,.07)}
+.i-theme-btn{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;font-size:.9rem;cursor:pointer;flex-shrink:0;padding:0;color:inherit}
+.i-nav-sp{flex:1}
+
+.page{max-width:640px;margin:0 auto;padding:32px 20px 60px}
+.page-title{font-family:'Syne',system-ui,sans-serif;font-size:1.8rem;font-weight:800;color:var(--txt);margin-bottom:6px}
+.page-sub{font-size:.83rem;color:var(--txt2);margin-bottom:32px}
+
+/* PROFILE CARD */
+.profile-card{background:var(--bg2);border:1px solid var(--brd);border-radius:20px;padding:24px;margin-bottom:20px;display:flex;align-items:center;gap:16px}
+.profile-avatar{width:56px;height:56px;border-radius:16px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;color:#fff;flex-shrink:0;font-family:'Syne',system-ui,sans-serif}
+.profile-email{font-size:.93rem;font-weight:700;color:var(--txt)}
+.profile-joined{font-size:.75rem;color:var(--txt2);margin-top:3px}
+.profile-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);color:#22c55e;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-top:6px}
+
+/* SETTINGS SECTION */
+.settings-section{background:var(--bg2);border:1px solid var(--brd);border-radius:20px;overflow:hidden;margin-bottom:16px}
+.settings-hdr{padding:18px 20px 14px;border-bottom:1px solid var(--brd)}
+.settings-hdr h2{font-size:.88rem;font-weight:800;color:var(--txt);text-transform:uppercase;letter-spacing:.06em}
+.settings-hdr p{font-size:.76rem;color:var(--txt2);margin-top:3px}
+.settings-body{padding:20px}
+
+/* FORM */
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.73rem;font-weight:700;color:var(--txt2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em}
+.field input{width:100%;padding:10px 13px;border-radius:9px;background:var(--bg3);border:1.5px solid var(--brd);color:var(--txt);font-size:.88rem;font-family:inherit;outline:none;transition:.18s}
+.field input:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(229,62,62,.1)}
+.field input::placeholder{color:var(--txt3)}
+.field input[readonly]{opacity:.6;cursor:not-allowed}
+
+/* BUTTONS */
+.btn{padding:9px 18px;border-radius:10px;font-size:.81rem;font-weight:700;cursor:pointer;font-family:inherit;transition:.18s;border:none;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:var(--grad);color:#fff}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.btn-danger{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);color:#f87171}
+.btn-danger:hover{background:rgba(239,68,68,.2)}
+.btn-outline{background:transparent;border:1px solid var(--brd);color:var(--txt2)}
+.btn-outline:hover{border-color:var(--brd2);color:var(--txt)}
+
+/* SETTING ROW */
+.setting-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--brd)}
+.setting-row:last-child{border-bottom:none;padding-bottom:0}
+.setting-info h3{font-size:.85rem;font-weight:700;color:var(--txt)}
+.setting-info p{font-size:.74rem;color:var(--txt2);margin-top:2px;line-height:1.5}
+
+/* MSG */
+.msg{padding:9px 13px;border-radius:9px;font-size:.79rem;font-weight:600;margin-bottom:14px;display:none}
+.msg.err{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);color:#f87171}
+.msg.ok{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);color:#4ade80}
+.msg.show{display:block}
+
+/* DANGER ZONE */
+.danger-section{background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.15);border-radius:20px;padding:20px;margin-bottom:16px}
+.danger-section h2{font-size:.88rem;font-weight:800;color:#f87171;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em}
+.danger-section p{font-size:.76rem;color:var(--txt2);margin-bottom:14px;line-height:1.5}
+
+/* CONFIRM */
+.confirm-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);align-items:center;justify-content:center}
+.confirm-overlay.open{display:flex}
+.confirm-box{background:var(--bg2);border:1px solid var(--brd);border-radius:18px;padding:28px;max-width:380px;width:100%;margin:20px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.confirm-box h3{font-family:'Syne',system-ui,sans-serif;font-size:1.1rem;font-weight:800;color:var(--txt);margin-bottom:8px}
+.confirm-box p{font-size:.83rem;color:var(--txt2);margin-bottom:16px;line-height:1.6}
+.confirm-input{width:100%;padding:10px 13px;border-radius:9px;background:var(--bg3);border:1.5px solid var(--brd);color:var(--txt);font-size:.88rem;font-family:inherit;outline:none;margin-bottom:16px}
+.confirm-input:focus{border-color:var(--acc)}
+.confirm-btns{display:flex;gap:8px;justify-content:flex-end}
+
+/* LOADER */
+.loader{text-align:center;padding:60px 20px;color:var(--txt3)}
+.spin{display:inline-block;width:20px;height:20px;border:2px solid var(--brd);border-top-color:var(--acc);border-radius:50%;animation:spin .8s linear infinite;margin-right:8px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* TOAST */
+#accToast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg2);border:1px solid var(--brd);color:var(--txt);padding:10px 20px;border-radius:20px;font-size:.82rem;font-weight:600;z-index:10000;opacity:0;transition:.3s;white-space:nowrap;pointer-events:none}
+#accToast.show{opacity:1;transform:translateX(-50%)}
+</style>
+</head>
+<body>
+<nav class="i-site-nav">
+  <a href="index.html" class="i-logo"><div class="i-logo-mark">❤️</div><span class="i-logo-txt">iLoveConvert</span></a>
+  <div class="i-nav-sp"></div>
+  <div class="nav-tabs">
+    <a href="dashboard.html" class="nav-tab">📊 Dashboard</a>
+    <a href="history.html" class="nav-tab">🕓 History</a>
+    <a href="account.html" class="nav-tab cur">⚙️ Account</a>
+  </div>
+  <button class="i-theme-btn" onclick="ilcToggleTheme()" title="Toggle theme">☀️</button>
+  <a href="index.html" class="nav-tab">← All Tools</a>
+</nav>
+
+<div class="page" id="loaderWrap"><div class="loader"><span class="spin"></span>Loading account…</div></div>
+
+<div class="page" id="pageContent" style="display:none">
+  <h1 class="page-title">⚙️ Account Settings</h1>
+  <p class="page-sub">Manage your iLoveConvert account.</p>
+
+  <!-- PROFILE -->
+  <div class="profile-card">
+    <div class="profile-avatar" id="profileAvatar">U</div>
+    <div>
+      <div class="profile-email" id="profileEmail">Loading…</div>
+      <div class="profile-joined" id="profileJoined"></div>
+      <div class="profile-badge">✨ Free Plan</div>
+    </div>
+  </div>
+
+  <!-- PASSWORD -->
+  <div class="settings-section">
+    <div class="settings-hdr">
+      <h2>🔑 Change Password</h2>
+      <p>Update your account password.</p>
+    </div>
+    <div class="settings-body">
+      <div class="msg" id="passMsg"></div>
+      <div class="field">
+        <label>New Password</label>
+        <input type="password" id="newPass" placeholder="Min. 8 characters"/>
+      </div>
+      <div class="field">
+        <label>Confirm New Password</label>
+        <input type="password" id="confirmPass" placeholder="Repeat new password"/>
+      </div>
+      <button class="btn btn-primary" onclick="changePassword()" id="passBtn">Update Password</button>
+    </div>
+  </div>
+
+  <!-- SESSION -->
+  <div class="settings-section">
+    <div class="settings-body">
+      <div class="setting-row">
+        <div class="setting-info">
+          <h3>Sign Out</h3>
+          <p>End your current session on this device. You can sign back in at any time.</p>
+        </div>
+        <button class="btn btn-outline" onclick="doSignOut()">🚪 Sign Out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DANGER ZONE -->
+  <div class="danger-section">
+    <h2>⚠️ Danger Zone</h2>
+    <p>These actions are permanent and cannot be undone. Please proceed with caution.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn btn-danger" onclick="confirmDeleteHistory()">🗑️ Delete All History</button>
+      <button class="btn btn-danger" onclick="confirmDeleteAccount()">💀 Delete Account</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM DIALOG -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <h3 id="confirmTitle">Confirm</h3>
+    <p id="confirmBody"></p>
+    <input type="text" class="confirm-input" id="confirmInput" placeholder="" style="display:none"/>
+    <div class="confirm-btns">
+      <button class="btn btn-outline" onclick="closeConfirm()">Cancel</button>
+      <button class="btn btn-danger" id="confirmOkBtn">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<div id="accToast"></div>
+
+<script src="supabase.js"></script>
+<script src="auth.js"></script>
+<script>
+function ilcToggleTheme(){var t=(localStorage.getItem('ilc_theme')||'dark')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);localStorage.setItem('ilc_theme',t);}
+(function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('ilc_theme')||'dark')})();
+
+function toast(m){var t=document.getElementById('accToast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2600);}
+function showMsg(id,txt,type){var m=document.getElementById(id);m.textContent=txt;m.className='msg '+(type||'err')+' show';}
+function clearMsg(id){document.getElementById(id).className='msg';}
+
+function loadAccount(user) {
+  document.getElementById('loaderWrap').style.display   = 'none';
+  document.getElementById('pageContent').style.display = '';
+  document.getElementById('profileEmail').textContent   = user.email || '';
+  document.getElementById('profileAvatar').textContent  = (user.email || 'U')[0].toUpperCase();
+  var created = new Date(user.created_at || Date.now());
+  document.getElementById('profileJoined').textContent  = 'Member since ' + created.toLocaleDateString('en-GB', {month:'long',year:'numeric'});
+
+  /* Handle password reset from email link */
+  if (new URLSearchParams(location.search).get('reset') === '1') {
+    document.getElementById('newPass').focus();
+    toast('👆 Enter your new password below');
+  }
+}
+
+/* CHANGE PASSWORD */
+function changePassword() {
+  var np  = document.getElementById('newPass').value;
+  var cp  = document.getElementById('confirmPass').value;
+  clearMsg('passMsg');
+  if (np.length < 8) { showMsg('passMsg', '⚠️ Password must be at least 8 characters'); return; }
+  if (np !== cp)     { showMsg('passMsg', '⚠️ Passwords do not match');                  return; }
+  var btn = document.getElementById('passBtn');
+  btn.disabled = true; btn.textContent = 'Updating…';
+  window.ilcSupabase.auth.updateUser({ password: np }).then(function (r) {
+    btn.disabled = false; btn.textContent = 'Update Password';
+    if (r.error) { showMsg('passMsg', '❌ ' + r.error.message); return; }
+    showMsg('passMsg', '✅ Password updated successfully!', 'ok');
+    document.getElementById('newPass').value    = '';
+    document.getElementById('confirmPass').value = '';
+  });
+}
+
+/* SIGN OUT */
+function doSignOut() {
+  window.ilcSupabase.auth.signOut().then(function () {
+    location.replace('index.html');
+  });
+}
+
+/* CONFIRM HELPERS */
+var confirmCb = null;
+function closeConfirm(){document.getElementById('confirmOverlay').classList.remove('open');confirmCb=null;}
+
+function openConfirm(title, body, btnLabel, cb, requireTyping) {
+  document.getElementById('confirmTitle').textContent = title;
+  document.getElementById('confirmBody').textContent  = body;
+  document.getElementById('confirmOkBtn').textContent = btnLabel;
+  var inp = document.getElementById('confirmInput');
+  if (requireTyping) {
+    inp.style.display   = '';
+    inp.placeholder     = requireTyping;
+    inp.value           = '';
+  } else {
+    inp.style.display   = 'none';
+  }
+  confirmCb = function () {
+    if (requireTyping && inp.value !== requireTyping) {
+      toast('⚠️ Please type the confirmation text exactly');
+      return;
+    }
+    closeConfirm();
+    cb();
+  };
+  document.getElementById('confirmOkBtn').onclick = confirmCb;
+  document.getElementById('confirmOverlay').classList.add('open');
+}
+
+/* DELETE ALL HISTORY */
+function confirmDeleteHistory() {
+  openConfirm('Delete All History?',
+    'This permanently removes all your tool usage records. This cannot be undone.',
+    '🗑️ Delete All History', deleteHistory, null);
+}
+function deleteHistory() {
+  var user = window._ilcCurrentUser;
+  if (!user) return;
+  window.ilcSupabase.from('tool_history').delete().eq('user_id', user.id).then(function (r) {
+    if (r.error) { toast('❌ Failed: ' + r.error.message); return; }
+    toast('✅ History cleared');
+  });
+}
+
+/* DELETE ACCOUNT */
+function confirmDeleteAccount() {
+  openConfirm('Delete Your Account?',
+    'This permanently deletes your account and ALL your data. Type DELETE to confirm.',
+    '💀 Delete Account', deleteAccount, 'DELETE');
+}
+function deleteAccount() {
+  var user = window._ilcCurrentUser;
+  if (!user) return;
+  /* Delete user data first */
+  Promise.all([
+    window.ilcSupabase.from('tool_history').delete().eq('user_id', user.id),
+    window.ilcSupabase.from('favorite_tools').delete().eq('user_id', user.id)
+  ]).then(function () {
+    /* Sign out — account deletion requires server-side (service role key) */
+    window.ilcSupabase.auth.signOut().then(function () {
+      toast('✅ Account data deleted. Goodbye!');
+      setTimeout(function () { location.replace('index.html'); }, 1500);
+    });
+  }).catch(function () { toast('❌ Error deleting account data'); });
+}
+
+/* Auth gate */
+document.addEventListener('ilcSupabaseReady', function () {
+  window.ilcSupabase.auth.getSession().then(function (r) {
+    var user = r.data && r.data.session ? r.data.session.user : null;
+    window._ilcCurrentUser = user;
+    if (!user) { location.replace('login.html?next=account.html'); return; }
+    loadAccount(user);
+  });
+});
+setTimeout(function () {
+  if (document.getElementById('loaderWrap').style.display !== 'none' && !window.ilcSupabase) {
+    location.replace('login.html?next=account.html');
+  }
+}, 5000);
+</script>
+</body>
+</html>

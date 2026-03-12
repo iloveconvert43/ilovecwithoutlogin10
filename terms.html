@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#e53e3e"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="iLoveConvert"/>
+
 <title>Terms of Service – iLoveConvert</title>
 <meta name="description" content="Terms of Service for iLoveConvert. Free online PDF, image and video converter tools. Use of this website is subject to these terms."/>
 <meta name="robots" content="index, follow"/>
@@ -62,5 +67,9 @@ footer p{font-size:.7rem;color:var(--text3)}
   <p>© 2025 iLoveConvert</p>
   <div class="fl"><a href="index.html">Home</a><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a></div>
 </footer>
+
+<script src="supabase.js"></script>
+<script src="auth.js"></script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("service-worker.js").catch(function(){});</script>
 </body>
 </html>

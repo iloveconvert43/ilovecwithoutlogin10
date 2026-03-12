@@ -369,4 +369,8 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+<url><loc>https://iloveconvert.vercel.app/login.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+<url><loc>https://iloveconvert.vercel.app/dashboard.html</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
+<url><loc>https://iloveconvert.vercel.app/history.html</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
+<url><loc>https://iloveconvert.vercel.app/account.html</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
 </urlset>

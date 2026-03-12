@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<title>Sign In — iLoveConvert</title>
+<meta name="description" content="Sign in or create a free iLoveConvert account to save your conversion history, bookmark favourite tools, and access your dashboard from any device."/>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="canonical" href="https://iloveconvert.vercel.app/login.html"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23e53e3e'/><stop offset='100%25' stop-color='%237c3aed'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='url(%23g)'/><text y='.9em' font-size='66' x='17'>❤️</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script>(function(){var t=localStorage.getItem('ilc_theme')||'dark';document.documentElement.setAttribute('data-theme',t);})()</script>
+<style>
+:root{
+  --bg:#050508;--bg2:#0a0a10;--bg3:#0f0f18;--brd:rgba(255,255,255,.08);
+  --txt:#eeeef5;--txt2:#8888a8;--txt3:#444460;
+  --acc:#e53e3e;--acc2:#7c3aed;
+  --grad:linear-gradient(135deg,#e53e3e,#7c3aed);
+}
+[data-theme="light"]{
+  --bg:#f7f8fc;--bg2:#fff;--bg3:#f0f1f8;--brd:rgba(18,19,42,.1);
+  --txt:#12132a;--txt2:#52546e;--txt3:#9699b8;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--txt);font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  display:flex;flex-direction:column;min-height:100vh;
+  background-image:radial-gradient(ellipse at 20% 20%,rgba(229,62,62,.06) 0%,transparent 60%),
+    radial-gradient(ellipse at 80% 80%,rgba(124,58,237,.06) 0%,transparent 60%)}
+
+/* NAV */
+.nav{display:flex;align-items:center;padding:0 24px;height:60px;border-bottom:1px solid var(--brd)}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;font-family:'Syne',system-ui,sans-serif;font-size:1rem;font-weight:800}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.82rem}
+.logo-txt{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-sp{flex:1}
+.nav-back{font-size:.78rem;font-weight:600;color:var(--txt2);text-decoration:none;padding:6px 12px;border-radius:8px;border:1px solid var(--brd);transition:.18s}
+.nav-back:hover{color:var(--txt);border-color:rgba(255,255,255,.2)}
+[data-theme="light"] .nav-back:hover{border-color:rgba(18,19,42,.2)}
+
+/* MAIN */
+.main{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 20px}
+.card{width:100%;max-width:440px;background:var(--bg2);border:1px solid var(--brd);border-radius:22px;padding:36px 32px;box-shadow:0 24px 80px rgba(0,0,0,.25)}
+[data-theme="light"] .card{box-shadow:0 8px 40px rgba(18,19,42,.1)}
+
+/* BRAND */
+.card-brand{text-align:center;margin-bottom:28px}
+.card-brand-ic{width:54px;height:54px;border-radius:16px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 12px}
+.card-brand-t{font-family:'Syne',system-ui,sans-serif;font-size:1.4rem;font-weight:800;color:var(--txt)}
+.card-brand-s{font-size:.82rem;color:var(--txt2);margin-top:4px}
+
+/* TABS */
+.tabs{display:flex;gap:4px;background:var(--bg3);border-radius:10px;padding:4px;margin-bottom:24px}
+.tab{flex:1;padding:8px;border-radius:7px;background:none;border:none;cursor:pointer;
+  font-size:.82rem;font-weight:700;color:var(--txt2);font-family:inherit;transition:.18s}
+.tab.act{background:var(--bg2);color:var(--txt);box-shadow:0 1px 6px rgba(0,0,0,.15)}
+[data-theme="light"] .tab.act{box-shadow:0 1px 6px rgba(18,19,42,.1)}
+
+/* GOOGLE BTN */
+.google-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:11px 20px;border-radius:11px;background:var(--bg3);border:1px solid var(--brd);
+  color:var(--txt);font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit;
+  transition:.18s;margin-bottom:20px}
+.google-btn:hover{background:var(--bg);border-color:rgba(255,255,255,.18);transform:translateY(-1px)}
+[data-theme="light"] .google-btn:hover{border-color:rgba(18,19,42,.18)}
+.google-ic{width:18px;height:18px}
+
+/* DIVIDER */
+.div-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.div-row hr{flex:1;border:none;border-top:1px solid var(--brd)}
+.div-row span{font-size:.72rem;font-weight:600;color:var(--txt3)}
+
+/* FORM */
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.75rem;font-weight:700;color:var(--txt2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.field input{width:100%;padding:11px 14px;border-radius:10px;background:var(--bg3);border:1.5px solid var(--brd);
+  color:var(--txt);font-size:.9rem;font-family:inherit;outline:none;transition:.18s}
+.field input:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(229,62,62,.12)}
+.field input::placeholder{color:var(--txt3)}
+.forgot{font-size:.75rem;color:var(--txt2);text-decoration:none;display:block;text-align:right;margin-top:-10px;margin-bottom:16px}
+.forgot:hover{color:var(--acc)}
+
+/* SUBMIT */
+.submit-btn{width:100%;padding:12px 20px;border-radius:11px;background:var(--grad);color:#fff;
+  font-size:.92rem;font-weight:800;border:none;cursor:pointer;font-family:inherit;transition:.18s}
+.submit-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+/* MESSAGES */
+.msg{padding:10px 14px;border-radius:10px;font-size:.81rem;font-weight:600;margin-bottom:14px;display:none}
+.msg.err{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);color:#f87171}
+.msg.ok{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);color:#4ade80}
+.msg.show{display:block}
+
+/* FOOTER NOTE */
+.card-note{text-align:center;font-size:.74rem;color:var(--txt3);margin-top:18px;line-height:1.6}
+.card-note a{color:var(--txt2);text-decoration:none}
+.card-note a:hover{color:var(--acc)}
+
+/* BENEFITS */
+.benefits{max-width:440px;margin:24px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ben{background:var(--bg2);border:1px solid var(--brd);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:8px;font-size:.76rem;font-weight:600;color:var(--txt2)}
+.ben-ic{font-size:1.1rem}
+
+/* RESET FORM */
+#resetSection{display:none}
+
+@media(max-width:480px){.card{padding:28px 20px}.benefits{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">❤️</div>
+    <span class="logo-txt">iLoveConvert</span>
+  </a>
+  <div class="nav-sp"></div>
+  <a href="index.html" class="nav-back">← All Tools</a>
+</nav>
+
+<main class="main">
+  <div>
+    <div class="card">
+      <!-- BRAND -->
+      <div class="card-brand">
+        <div class="card-brand-ic">👤</div>
+        <div class="card-brand-t">Welcome to iLoveConvert</div>
+        <div class="card-brand-s">Free account — saves your history &amp; favourites</div>
+      </div>
+
+      <!-- TABS -->
+      <div class="tabs" id="authTabs">
+        <button class="tab act" onclick="showTab('login')">Sign In</button>
+        <button class="tab" onclick="showTab('signup')">Create Account</button>
+      </div>
+
+      <!-- MESSAGES -->
+      <div class="msg" id="authMsg"></div>
+
+      <!-- GOOGLE -->
+      <button class="google-btn" onclick="googleLogin()">
+        <svg class="google-ic" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Continue with Google
+      </button>
+
+      <div class="div-row"><hr/><span>or use email</span><hr/></div>
+
+      <!-- LOGIN FORM -->
+      <div id="loginSection">
+        <div class="field">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email"/>
+        </div>
+        <div class="field">
+          <label for="loginPass">Password</label>
+          <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password"/>
+        </div>
+        <a href="#" class="forgot" onclick="showReset();return false">Forgot password?</a>
+        <button class="submit-btn" onclick="doLogin()">Sign In</button>
+      </div>
+
+      <!-- SIGNUP FORM -->
+      <div id="signupSection" style="display:none">
+        <div class="field">
+          <label for="signupEmail">Email Address</label>
+          <input type="email" id="signupEmail" placeholder="you@example.com" autocomplete="email"/>
+        </div>
+        <div class="field">
+          <label for="signupPass">Choose Password</label>
+          <input type="password" id="signupPass" placeholder="Min. 8 characters" autocomplete="new-password"/>
+        </div>
+        <button class="submit-btn" onclick="doSignup()">Create Free Account</button>
+      </div>
+
+      <!-- PASSWORD RESET -->
+      <div id="resetSection">
+        <div class="field">
+          <label for="resetEmail">Your Email Address</label>
+          <input type="email" id="resetEmail" placeholder="you@example.com"/>
+        </div>
+        <button class="submit-btn" onclick="doReset()">Send Reset Link</button>
+        <a href="#" style="display:block;text-align:center;font-size:.78rem;color:var(--txt2);margin-top:12px;text-decoration:none" onclick="showTab('login');return false">← Back to Sign In</a>
+      </div>
+
+      <div class="card-note">
+        By continuing you agree to our <a href="terms.html">Terms</a> &amp; <a href="privacy.html">Privacy Policy</a>.<br/>
+        All tools work without an account. Login is optional.
+      </div>
+    </div>
+
+    <!-- BENEFITS -->
+    <div class="benefits">
+      <div class="ben"><span class="ben-ic">🕓</span> Save tool history</div>
+      <div class="ben"><span class="ben-ic">⭐</span> Favourite tools</div>
+      <div class="ben"><span class="ben-ic">📊</span> Usage dashboard</div>
+      <div class="ben"><span class="ben-ic">☁️</span> Sync across devices</div>
+    </div>
+  </div>
+</main>
+
+<script src="supabase.js"></script>
+<script>
+/* ── TAB SWITCHING ── */
+function showTab(tab) {
+  var tabs     = document.querySelectorAll('.tab');
+  var login    = document.getElementById('loginSection');
+  var signup   = document.getElementById('signupSection');
+  var reset    = document.getElementById('resetSection');
+  var msg      = document.getElementById('authMsg');
+  msg.className = 'msg';
+  reset.style.display = 'none';
+  if (tab === 'login') {
+    login.style.display  = '';
+    signup.style.display = 'none';
+    tabs[0].classList.add('act'); tabs[1].classList.remove('act');
+  } else {
+    login.style.display  = 'none';
+    signup.style.display = '';
+    tabs[0].classList.remove('act'); tabs[1].classList.add('act');
+  }
+}
+
+function showReset() {
+  document.getElementById('loginSection').style.display  = 'none';
+  document.getElementById('signupSection').style.display = 'none';
+  document.getElementById('resetSection').style.display  = '';
+  document.querySelector('.tabs').style.display = 'none';
+  clearMsg();
+}
+
+function showMsg(txt, type) {
+  var m = document.getElementById('authMsg');
+  m.textContent = txt;
+  m.className   = 'msg ' + (type || 'err') + ' show';
+}
+function clearMsg() {
+  document.getElementById('authMsg').className = 'msg';
+}
+
+function getNext() {
+  return new URLSearchParams(location.search).get('next') || 'dashboard.html';
+}
+
+/* ── GOOGLE OAUTH ── */
+function googleLogin() {
+  waitSupabase(function (sb) {
+    sb.auth.signInWithOAuth({
+      provider  : 'google',
+      options   : { redirectTo: location.origin + '/' + getNext() }
+    }).then(function (r) {
+      if (r.error) showMsg('❌ ' + r.error.message);
+    });
+  });
+}
+
+/* ── EMAIL LOGIN ── */
+function doLogin() {
+  var email = document.getElementById('loginEmail').value.trim();
+  var pass  = document.getElementById('loginPass').value;
+  if (!email || !pass) { showMsg('Please fill all fields'); return; }
+  var btn = document.querySelector('#loginSection .submit-btn');
+  btn.disabled = true; btn.textContent = 'Signing in…';
+  waitSupabase(function (sb) {
+    sb.auth.signInWithPassword({ email: email, password: pass })
+      .then(function (r) {
+        btn.disabled = false; btn.textContent = 'Sign In';
+        if (r.error) { showMsg('❌ ' + r.error.message); return; }
+        showMsg('✅ Signed in! Redirecting…', 'ok');
+        setTimeout(function () { location.href = getNext(); }, 900);
+      });
+  });
+}
+
+/* ── EMAIL SIGNUP ── */
+function doSignup() {
+  var email = document.getElementById('signupEmail').value.trim();
+  var pass  = document.getElementById('signupPass').value;
+  if (!email) { showMsg('Please enter your email'); return; }
+  if (pass.length < 8) { showMsg('Password must be at least 8 characters'); return; }
+  var btn = document.querySelector('#signupSection .submit-btn');
+  btn.disabled = true; btn.textContent = 'Creating account…';
+  waitSupabase(function (sb) {
+    sb.auth.signUp({ email: email, password: pass,
+      options: { emailRedirectTo: location.origin + '/dashboard.html' }
+    }).then(function (r) {
+      btn.disabled = false; btn.textContent = 'Create Free Account';
+      if (r.error) { showMsg('❌ ' + r.error.message); return; }
+      if (r.data.user && !r.data.session) {
+        showMsg('📧 Check your email to confirm your account!', 'ok');
+      } else {
+        showMsg('✅ Account created!', 'ok');
+        setTimeout(function () { location.href = 'dashboard.html'; }, 900);
+      }
+    });
+  });
+}
+
+/* ── PASSWORD RESET ── */
+function doReset() {
+  var email = document.getElementById('resetEmail').value.trim();
+  if (!email) { showMsg('Please enter your email address'); return; }
+  var btn = document.querySelector('#resetSection .submit-btn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  waitSupabase(function (sb) {
+    sb.auth.resetPasswordForEmail(email, {
+      redirectTo: location.origin + '/account.html?reset=1'
+    }).then(function (r) {
+      btn.disabled = false; btn.textContent = 'Send Reset Link';
+      if (r.error) { showMsg('❌ ' + r.error.message); return; }
+      showMsg('📧 Reset link sent! Check your inbox.', 'ok');
+    });
+  });
+}
+
+/* ── WAIT FOR SUPABASE ── */
+function waitSupabase(cb) {
+  if (window.ilcSupabase) { cb(window.ilcSupabase); return; }
+  document.addEventListener('ilcSupabaseReady', function () { cb(window.ilcSupabase); });
+  document.addEventListener('ilcSupabaseError', function () {
+    showMsg('❌ Connection failed. Please check your internet and try again.');
+  });
+}
+
+/* ── KEYBOARD ── */
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') {
+    var loginVisible = document.getElementById('loginSection').style.display !== 'none';
+    if (loginVisible) doLogin();
+    else doSignup();
+  }
+});
+
+/* ── THEME ── */
+(function(){
+  var t = localStorage.getItem('ilc_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+</body>
+</html>

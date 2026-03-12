@@ -21,6 +21,11 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I move a page to a specific position?", "acceptedAnswer": {"@type": "Answer", "text": "Drag the page thumbnail to the desired position — other thumbnails shift automatically."}}, {"@type": "Question", "name": "Can I move multiple pages at once?", "acceptedAnswer": {"@type": "Answer", "text": "Currently, pages are moved one at a time for precise control."}}, {"@type": "Question", "name": "Will the PDF bookmarks be preserved?", "acceptedAnswer": {"@type": "Answer", "text": "Bookmarks/outlines may not match the new order — they are based on original page numbers."}}, {"@type": "Question", "name": "Can I combine reordering with page deletion?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — use Delete Pages after reordering, or vice versa."}}, {"@type": "Question", "name": "Is there a page limit?", "acceptedAnswer": {"@type": "Answer", "text": "No hard limit. Very large PDFs may take a moment to display thumbnails."}}]}</script>
 <script id="ilc-theme-init">(function(){var t=localStorage.getItem("ilc_theme")||"dark";document.documentElement.setAttribute("data-theme",t);})()</script>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#e53e3e"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="iLoveConvert"/>
+
 
 <meta name="robots" content="index, follow"/>
 
@@ -582,6 +587,10 @@ footer p{font-size:.7rem;color:var(--text3)}
   <a href="qr-tools.html" onclick="ilcToggleMob()">📱 QR &amp; Barcode</a>
   <a href="developer-tools.html" onclick="ilcToggleMob()">⚙️ Developer Tools</a>
   <div class="i-mob-div"></div>
+  <a href="login.html" onclick="ilcToggleMob()">👤 Sign In / Account</a>
+  <a href="dashboard.html" onclick="ilcToggleMob()">📊 Dashboard</a>
+  <a href="history.html" onclick="ilcToggleMob()">🕓 History</a>
+  <div class="i-mob-div"></div>
   <a href="about.html" onclick="ilcToggleMob()">About</a>
   <a href="contact.html" onclick="ilcToggleMob()">Contact</a>
   <a href="privacy.html" onclick="ilcToggleMob()">Privacy Policy</a>
@@ -1037,5 +1046,9 @@ window.addEventListener('scroll',function(){
 </div>
 </div>
 </footer>
+
+<script src="supabase.js"></script>
+<script src="auth.js"></script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("service-worker.js").catch(function(){});</script>
 </body>
 </html>

@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#e53e3e"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="iLoveConvert"/>
+
 <title>Video Converter – Coming Soon | iLoveConvert</title>
 <meta name="description" content="Video Converter tool is coming soon to iLoveConvert. Currently 55% complete — launching in approximately 48 days."/>
 <meta name="robots" content="noindex,follow"/>
@@ -175,5 +180,9 @@ function notifyMe(){
   alert('✅ Thanks! We will notify you at that email when Video Converter launches.');
 }
 </script>
+
+<script src="supabase.js"></script>
+<script src="auth.js"></script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("service-worker.js").catch(function(){});</script>
 </body>
 </html>

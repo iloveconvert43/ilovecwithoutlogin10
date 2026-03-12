@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#e53e3e"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="iLoveConvert"/>
+
 <title>Free Online Image Tools – Compress, Resize, Convert, Crop Images | iLoveConvert</title>
 <meta name="description" content="All free online image tools: compress, resize, convert, crop, rotate, watermark, grayscale, remove EXIF. Browser-based, no upload, works on iPhone & Android."/>
 <link rel="canonical" href="https://iloveconvert.vercel.app/image-tools.html"/>
@@ -165,6 +170,10 @@ img{max-width:100%}
   <a href="video-tools.html" onclick="catToggleMob()">🎬 Video Tools</a>
   <a href="qr-tools.html" onclick="catToggleMob()">📱 QR & Barcode</a>
   <a href="developer-tools.html" onclick="catToggleMob()">⚙️ Developer Tools</a>
+  <div class="cat-mob-div"></div>
+  <a href="login.html" onclick="catToggleMob()">👤 Sign In / Account</a>
+  <a href="dashboard.html" onclick="catToggleMob()">📊 Dashboard</a>
+  <a href="history.html" onclick="catToggleMob()">🕓 History</a>
   <div class="cat-mob-div"></div>
   <a href="about.html" onclick="catToggleMob()">About</a>
   <a href="contact.html" onclick="catToggleMob()">Contact</a>
@@ -373,5 +382,9 @@ if(typeof IntersectionObserver!=='undefined'){
 }
 
 </script>
+
+<script src="supabase.js"></script>
+<script src="auth.js"></script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("service-worker.js").catch(function(){});</script>
 </body>
 </html>

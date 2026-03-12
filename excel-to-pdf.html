@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#e53e3e"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="iLoveConvert"/>
+
 <title>Excel to PDF – Coming Soon | iLoveConvert</title>
 <meta name="description" content="Excel to PDF tool is coming soon to iLoveConvert. Currently 66% complete — launching in approximately 35 days."/>
 <meta name="robots" content="noindex,follow"/>
@@ -175,5 +180,9 @@ function notifyMe(){
   alert('✅ Thanks! We will notify you at that email when Excel to PDF launches.');
 }
 </script>
+
+<script src="supabase.js"></script>
+<script src="auth.js"></script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("service-worker.js").catch(function(){});</script>
 </body>
 </html>

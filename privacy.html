@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#e53e3e"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="iLoveConvert"/>
+
 <title>Privacy Policy – iLoveConvert</title>
 <meta name="description" content="iLoveConvert Privacy Policy. We never upload your files. All processing is done locally in your browser. Zero data collection."/>
 <meta name="robots" content="index, follow"/>
@@ -84,10 +89,38 @@ footer p{font-size:.7rem;color:var(--text3)}
     <h2>📬 Contact</h2>
     <p>Questions about our privacy practices? <a href="contact.html" style="color:#a855f7">Contact us here →</a></p>
   </div>
+
+  <div class="sec">
+    <h2>👤 User Accounts &amp; Personal Data</h2>
+    <p>iLoveConvert offers an optional account system powered by Supabase. Creating an account is completely voluntary — all tools work without signing in.</p>
+    <p><strong>If you create an account, we collect and store:</strong></p>
+    <ul>
+      <li><strong>Email address</strong> — used for login and password reset only. Never shared with third parties or used for marketing without explicit consent.</li>
+      <li><strong>Tool usage history</strong> — records of which tools you used, file names, and timestamps. Stored in a secure database with row-level security so only you can access your records.</li>
+      <li><strong>Favourite tools</strong> — the tools you bookmark with the ⭐ button. Stored only to power your personal dashboard.</li>
+    </ul>
+    <p>All account data is stored on Supabase infrastructure in secure, encrypted databases. Each user's data is strictly isolated — no user can access another user's records.</p>
+    <p>You can delete your tool history and close your account at any time from your <a href="account.html">Account Settings</a> page. Upon deletion, all your records are permanently removed.</p>
+  </div>
+
+  <div class="sec">
+    <h2>💾 Local Storage (No Login)</h2>
+    <p>If you use iLoveConvert without an account, recent tool activity is saved locally on your device using IndexedDB — a browser-native storage system. This data never leaves your device and is never sent to our servers. You can clear it by clearing your browser data.</p>
+    <p>When you sign in, your local history is automatically synced to your cloud account, then cleared from the local store.</p>
+  </div>
+
+  <div class="sec">
+    <h2>🔐 Session Management</h2>
+    <p>When you sign in, your session token is stored in your browser's localStorage. This keeps you logged in across visits. Sessions automatically expire after the Supabase default period. You can sign out at any time to immediately invalidate your session.</p>
+  </div>
 </div>
 <footer>
   <p>© 2025 iLoveConvert · Your files, your privacy</p>
   <div class="fl"><a href="index.html">Home</a><a href="about.html">About</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div>
 </footer>
+
+<script src="supabase.js"></script>
+<script src="auth.js"></script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("service-worker.js").catch(function(){});</script>
 </body>
 </html>

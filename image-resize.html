@@ -29,6 +29,11 @@
   -->
 <meta charset="UTF-8"/>
 <meta name="robots" content="index, follow"/><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#e53e3e"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="iLoveConvert"/>
+
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -613,6 +618,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 24p
   <a href="qr-tools.html" onclick="ilcToggleMob()">📱 QR &amp; Barcode</a>
   <a href="developer-tools.html" onclick="ilcToggleMob()">⚙️ Developer Tools</a>
   <div class="i-mob-div"></div>
+  <a href="login.html" onclick="ilcToggleMob()">👤 Sign In / Account</a>
+  <a href="dashboard.html" onclick="ilcToggleMob()">📊 Dashboard</a>
+  <a href="history.html" onclick="ilcToggleMob()">🕓 History</a>
+  <div class="i-mob-div"></div>
   <a href="about.html" onclick="ilcToggleMob()">About</a>
   <a href="contact.html" onclick="ilcToggleMob()">Contact</a>
   <a href="privacy.html" onclick="ilcToggleMob()">Privacy Policy</a>
@@ -1020,4 +1029,8 @@ window.addEventListener('scroll',function(){
 </div>
 </div>
 </footer>
+
+<script src="supabase.js"></script>
+<script src="auth.js"></script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("service-worker.js").catch(function(){});</script>
 </body></html>

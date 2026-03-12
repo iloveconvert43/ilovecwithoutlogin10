@@ -22,6 +22,11 @@
 <script id="ilc-theme-init">(function(){var t=localStorage.getItem("ilc_theme")||"dark";document.documentElement.setAttribute("data-theme",t);})()</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#e53e3e"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="iLoveConvert"/>
+
 <meta name="robots" content="index, follow"/>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1089,5 +1094,9 @@ seoDiv.innerHTML=`
 document.getElementById('uScr').appendChild(seoDiv);
 </script>
 
+
+<script src="supabase.js"></script>
+<script src="auth.js"></script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("service-worker.js").catch(function(){});</script>
 </body>
 </html>

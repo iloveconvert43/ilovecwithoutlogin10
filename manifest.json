@@ -1,0 +1,59 @@
+{
+  "name": "iLoveConvert — Free File Tools",
+  "short_name": "iLoveConvert",
+  "description": "50+ free online tools for PDF, image, video, QR codes and developers. All browser-based, no uploads, 100% private.",
+  "start_url": "/index.html?utm_source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050508",
+  "theme_color": "#e53e3e",
+  "categories": ["productivity", "utilities"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23e53e3e'/><stop offset='100%25' stop-color='%237c3aed'/></linearGradient></defs><rect width='512' height='512' rx='110' fill='url(%23g)'/><text y='.85em' font-size='340' x='80'>%E2%9D%A4%EF%B8%8F</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23e53e3e'/><stop offset='100%25' stop-color='%237c3aed'/></linearGradient></defs><rect width='192' height='192' rx='40' fill='url(%23g)'/><text y='.85em' font-size='128' x='30'>%E2%9D%A4%EF%B8%8F</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "PDF Editor",
+      "short_name": "PDF Edit",
+      "description": "Edit, annotate and sign PDF files",
+      "url": "/pdf-editor.html?utm_source=pwa_shortcut",
+      "icons": [{"src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text y='.9em' font-size='72'>📝</text></svg>", "sizes": "96x96"}]
+    },
+    {
+      "name": "Merge PDF",
+      "short_name": "Merge PDF",
+      "description": "Combine multiple PDFs into one",
+      "url": "/merge-pdf.html?utm_source=pwa_shortcut",
+      "icons": [{"src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text y='.9em' font-size='72'>📑</text></svg>", "sizes": "96x96"}]
+    },
+    {
+      "name": "Compress Image",
+      "short_name": "Compress",
+      "description": "Shrink image files without quality loss",
+      "url": "/image-compress.html?utm_source=pwa_shortcut",
+      "icons": [{"src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text y='.9em' font-size='72'>🗜️</text></svg>", "sizes": "96x96"}]
+    },
+    {
+      "name": "QR Generator",
+      "short_name": "QR Code",
+      "description": "Create QR codes for any URL or text",
+      "url": "/qr-generator.html?utm_source=pwa_shortcut",
+      "icons": [{"src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text y='.9em' font-size='72'>📱</text></svg>", "sizes": "96x96"}]
+    }
+  ],
+  "prefer_related_applications": false
+}

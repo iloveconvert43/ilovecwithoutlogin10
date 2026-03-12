@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<title>Dashboard — iLoveConvert</title>
+<meta name="description" content="Your personal iLoveConvert dashboard. See your tool usage, favourite tools, and recent activity."/>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23e53e3e'/><stop offset='100%25' stop-color='%237c3aed'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='url(%23g)'/><text y='.9em' font-size='66' x='17'>❤️</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script>(function(){var t=localStorage.getItem('ilc_theme')||'dark';document.documentElement.setAttribute('data-theme',t);})()</script>
+<style>
+:root{--bg:#050508;--bg2:#0a0a10;--bg3:#0f0f18;--bg4:#141420;--brd:rgba(255,255,255,.08);--brd2:rgba(255,255,255,.12);--txt:#eeeef5;--txt2:#8888a8;--txt3:#444460;--acc:#e53e3e;--acc2:#7c3aed;--grad:linear-gradient(135deg,#e53e3e,#7c3aed);--green:#22c55e;--amber:#f59e0b;--blue:#3b82f6}
+[data-theme="light"]{--bg:#f7f8fc;--bg2:#fff;--bg3:#f0f1f8;--bg4:#e8eaf4;--brd:rgba(18,19,42,.08);--brd2:rgba(18,19,42,.14);--txt:#12132a;--txt2:#52546e;--txt3:#9699b8}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Plus Jakarta Sans',system-ui,sans-serif;min-height:100vh}
+
+/* NAV */
+.i-site-nav{display:flex;align-items:center;gap:10px;padding:0 20px;position:sticky;top:0;z-index:1000;height:62px;background:rgba(5,5,8,.96);border-bottom:1px solid var(--brd);backdrop-filter:blur(20px)}
+[data-theme="light"] .i-site-nav{background:rgba(247,248,252,.97)}
+.i-logo{display:flex;align-items:center;gap:8px;font-family:'Syne',system-ui,sans-serif;font-size:1.05rem;font-weight:800;text-decoration:none;flex-shrink:0}
+.i-logo-mark{width:30px;height:30px;border-radius:8px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.i-logo-txt{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.i-nav-sp{flex:1}
+.nav-tabs{display:flex;align-items:center;gap:4px}
+.nav-tab{padding:6px 13px;border-radius:8px;font-size:.77rem;font-weight:600;color:var(--txt2);text-decoration:none;transition:.18s}
+.nav-tab:hover{background:rgba(255,255,255,.07);color:var(--txt)}
+.nav-tab.cur{background:rgba(255,255,255,.1);color:var(--txt)}
+[data-theme="light"] .nav-tab:hover{background:rgba(18,19,42,.05)}
+[data-theme="light"] .nav-tab.cur{background:rgba(18,19,42,.07)}
+.i-theme-btn{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;font-size:.9rem;cursor:pointer;flex-shrink:0;padding:0;color:inherit}
+.i-nav-sp{flex:1}
+
+/* PAGE */
+.page{max-width:1000px;margin:0 auto;padding:32px 20px 60px}
+
+/* GREETING */
+.greeting{margin-bottom:32px}
+.greeting h1{font-family:'Syne',system-ui,sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:800;color:var(--txt);margin-bottom:6px}
+.greeting p{color:var(--txt2);font-size:.9rem}
+.greeting .g{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* STATS GRID */
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:32px}
+.stat-card{background:var(--bg2);border:1px solid var(--brd);border-radius:16px;padding:20px;position:relative;overflow:hidden;transition:.2s}
+.stat-card::before{content:'';position:absolute;top:-30px;right:-30px;width:80px;height:80px;border-radius:50%;opacity:.5;pointer-events:none}
+.stat-card:nth-child(1)::before{background:radial-gradient(circle,rgba(229,62,62,.3),transparent)}
+.stat-card:nth-child(2)::before{background:radial-gradient(circle,rgba(245,158,11,.3),transparent)}
+.stat-card:nth-child(3)::before{background:radial-gradient(circle,rgba(34,197,94,.3),transparent)}
+.stat-card:nth-child(4)::before{background:radial-gradient(circle,rgba(59,130,246,.3),transparent)}
+.stat-ic{font-size:1.6rem;margin-bottom:10px;display:block}
+.stat-n{font-family:'Syne',system-ui,sans-serif;font-size:2rem;font-weight:800;color:var(--txt);line-height:1}
+.stat-l{font-size:.73rem;font-weight:600;color:var(--txt2);margin-top:4px;text-transform:uppercase;letter-spacing:.05em}
+
+/* SECTION */
+.sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.sec-hdr h2{font-family:'Syne',system-ui,sans-serif;font-size:1.05rem;font-weight:800;color:var(--txt)}
+.sec-hdr a{font-size:.78rem;font-weight:700;color:var(--acc);text-decoration:none}
+.sec-hdr a:hover{text-decoration:underline}
+.section{margin-bottom:36px}
+
+/* ACTIVITY LIST */
+.activity-list{background:var(--bg2);border:1px solid var(--brd);border-radius:16px;overflow:hidden}
+.act-item{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--brd);transition:.18s}
+.act-item:last-child{border-bottom:none}
+.act-item:hover{background:var(--bg3)}
+.act-ic{width:38px;height:38px;border-radius:10px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.act-info{flex:1;min-width:0}
+.act-tool{font-size:.83rem;font-weight:700;color:var(--txt)}
+.act-file{font-size:.72rem;color:var(--txt2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.act-time{font-size:.7rem;color:var(--txt3);flex-shrink:0}
+
+/* FAVS GRID */
+.favs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.fav-card{background:var(--bg2);border:1px solid var(--brd);border-radius:14px;padding:16px;
+  display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;
+  color:var(--txt2);font-size:.8rem;font-weight:700;transition:.2s;text-align:center}
+.fav-card:hover{border-color:var(--brd2);transform:translateY(-2px);color:var(--txt)}
+.fav-card-ic{font-size:1.6rem}
+
+/* EMPTY */
+.empty-state{text-align:center;padding:40px 20px;color:var(--txt3)}
+.empty-state .ei{font-size:2.5rem;margin-bottom:12px;display:block;opacity:.5}
+.empty-state p{font-size:.85rem;margin-bottom:14px}
+.empty-state a{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:10px;background:var(--grad);color:#fff;font-size:.82rem;font-weight:700;text-decoration:none;transition:.18s}
+
+/* QUICK TOOLS */
+.quick-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.quick-card{background:var(--bg2);border:1px solid var(--brd);border-radius:12px;padding:14px;
+  text-decoration:none;display:flex;align-items:center;gap:10px;transition:.18s;color:var(--txt2);font-size:.8rem;font-weight:600}
+.quick-card:hover{border-color:var(--brd2);transform:translateY(-1px);color:var(--txt)}
+.quick-ic{font-size:1.1rem;flex-shrink:0}
+
+/* LOADER */
+.loader{text-align:center;padding:40px;color:var(--txt3);font-size:.85rem}
+.spin{display:inline-block;width:20px;height:20px;border:2px solid var(--brd);border-top-color:var(--acc);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<nav class="i-site-nav" id="i-site-nav">
+  <a href="index.html" class="i-logo"><div class="i-logo-mark">❤️</div><span class="i-logo-txt">iLoveConvert</span></a>
+  <div class="i-nav-sp"></div>
+  <div class="nav-tabs">
+    <a href="dashboard.html" class="nav-tab cur">📊 Dashboard</a>
+    <a href="history.html" class="nav-tab">🕓 History</a>
+    <a href="account.html" class="nav-tab">⚙️ Account</a>
+  </div>
+  <button class="i-theme-btn" id="i-theme-btn" onclick="ilcToggleTheme()" title="Toggle theme">☀️</button>
+  <a href="index.html" class="nav-tab">← All Tools</a>
+</nav>
+
+<div class="page">
+  <div id="pageLoader" class="loader"><div class="spin"></div><div>Loading your dashboard…</div></div>
+  <div id="pageContent" style="display:none">
+    <!-- GREETING -->
+    <div class="greeting">
+      <h1>Hey, <span class="g" id="greetName">there</span> 👋</h1>
+      <p id="greetSub">Here's what you've been up to on iLoveConvert.</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat-card"><span class="stat-ic">🛠️</span><div class="stat-n" id="statTotal">0</div><div class="stat-l">Total Tools Used</div></div>
+      <div class="stat-card"><span class="stat-ic">⭐</span><div class="stat-n" id="statFavs">0</div><div class="stat-l">Favourite Tools</div></div>
+      <div class="stat-card"><span class="stat-ic">📅</span><div class="stat-n" id="statWeek">0</div><div class="stat-l">This Week</div></div>
+      <div class="stat-card"><span class="stat-ic">🏆</span><div class="stat-n" id="statStreak">—</div><div class="stat-l">Top Tool</div></div>
+    </div>
+
+    <!-- RECENT ACTIVITY -->
+    <div class="section">
+      <div class="sec-hdr"><h2>🕓 Recent Activity</h2><a href="history.html">View all →</a></div>
+      <div id="activityWrap"></div>
+    </div>
+
+    <!-- FAVOURITES -->
+    <div class="section">
+      <div class="sec-hdr"><h2>⭐ Favourite Tools</h2><a href="index.html">Browse all →</a></div>
+      <div id="favsWrap"></div>
+    </div>
+
+    <!-- QUICK ACCESS -->
+    <div class="section">
+      <div class="sec-hdr"><h2>⚡ Quick Access</h2></div>
+      <div class="quick-grid">
+        <a href="pdf-editor.html" class="quick-card"><span class="quick-ic">📝</span>PDF Editor</a>
+        <a href="merge-pdf.html" class="quick-card"><span class="quick-ic">📑</span>Merge PDF</a>
+        <a href="image-compress.html" class="quick-card"><span class="quick-ic">🗜️</span>Compress Image</a>
+        <a href="image-convert.html" class="quick-card"><span class="quick-ic">🔄</span>Convert Image</a>
+        <a href="qr-generator.html" class="quick-card"><span class="quick-ic">📱</span>QR Generator</a>
+        <a href="password-gen.html" class="quick-card"><span class="quick-ic">🔑</span>Password Gen</a>
+        <a href="video-to-mp3.html" class="quick-card"><span class="quick-ic">🎵</span>Video to MP3</a>
+        <a href="json-formatter.html" class="quick-card"><span class="quick-ic">⚙️</span>JSON Format</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="supabase.js"></script>
+<script src="auth.js"></script>
+<script>
+/* Theme */
+function ilcToggleTheme(){var t=(localStorage.getItem('ilc_theme')||'dark')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);localStorage.setItem('ilc_theme',t);var b=document.getElementById('i-theme-btn');if(b)b.textContent=t==='dark'?'☀️':'🌙';}
+(function(){var t=localStorage.getItem('ilc_theme')||'dark';document.documentElement.setAttribute('data-theme',t);var b=document.getElementById('i-theme-btn');if(b)b.textContent=t==='dark'?'☀️':'🌙';})();
+
+/* Tool icon map */
+var TOOL_ICONS = {
+  'compress':  '🗜️', 'merge':     '📑', 'split':     '✂️',
+  'pdf':       '📄', 'image':     '🖼️', 'video':     '🎬',
+  'qr':        '📱', 'password':  '🔑', 'json':      '⚙️',
+  'watermark': '💧', 'protect':   '🔒', 'rotate':    '🔄',
+  'convert':   '🔃', 'crop':      '✂️', 'resize':    '📏',
+  'mp3':       '🎵', 'gif':       '🎞️', 'screenshot':'📸',
+  'hash':      '🔐', 'base64':    '💻', 'barcode':   '📊'
+};
+function getIcon(toolName) {
+  var n = (toolName || '').toLowerCase();
+  for (var k in TOOL_ICONS) { if (n.includes(k)) return TOOL_ICONS[k]; }
+  return '🛠️';
+}
+
+function timeAgo(iso) {
+  var d = new Date(iso), now = Date.now(), diff = Math.floor((now - d) / 1000);
+  if (diff < 60)    return 'just now';
+  if (diff < 3600)  return Math.floor(diff/60)  + 'm ago';
+  if (diff < 86400) return Math.floor(diff/3600) + 'h ago';
+  return Math.floor(diff/86400) + 'd ago';
+}
+
+/* Tool name → page file */
+var TOOL_PAGES = {
+  'Compress Image': 'image-compress.html', 'Merge PDF': 'merge-pdf.html',
+  'PDF Editor': 'pdf-editor.html', 'QR Generator': 'qr-generator.html',
+  'Image Resize': 'image-resize.html', 'Image Convert': 'image-convert.html',
+  'Compress PDF': 'compress-pdf.html', 'Split PDF': 'split-pdf.html',
+  'Rotate PDF': 'rotate-pdf.html', 'Video to MP3': 'video-to-mp3.html',
+  'Video to GIF': 'video-gif.html', 'Password Generator': 'password-gen.html',
+  'JSON Formatter': 'json-formatter.html', 'Hash Generator': 'hash-generator.html',
+  'Base64 Encode/Decode': 'base64.html', 'Image Crop': 'image-crop.html',
+  'Image Watermark': 'image-watermark.html', 'Grayscale Image': 'grayscale.html',
+  'JPG to PDF': 'jpg-to-pdf.html', 'PDF to JPG': 'pdf-to-jpg.html',
+  'QR Scanner': 'qr-scanner.html', 'Barcode Generator': 'barcode-gen.html',
+  'ICO Converter': 'ico-converter.html', 'Color Picker': 'color-picker.html'
+};
+
+function loadDashboard(sb, userId) {
+  var loader  = document.getElementById('pageLoader');
+  var content = document.getElementById('pageContent');
+
+  /* Fetch history + favs in parallel */
+  Promise.all([
+    sb.from('tool_history').select('*').eq('user_id', userId).order('created_at', {ascending: false}).limit(50),
+    sb.from('favorite_tools').select('*').eq('user_id', userId)
+  ]).then(function (results) {
+    var histRes = results[0];
+    var favRes  = results[1];
+    loader.style.display  = 'none';
+    content.style.display = '';
+
+    var history = histRes.error ? [] : (histRes.data || []);
+    var favs    = favRes.error  ? [] : (favRes.data  || []);
+
+    /* Greeting */
+    var user = window._ilcCurrentUser;
+    if (user) {
+      var name = (user.user_metadata && user.user_metadata.full_name) ||
+                 (user.email || '').split('@')[0];
+      document.getElementById('greetName').textContent = name;
+    }
+
+    /* Stats */
+    document.getElementById('statTotal').textContent = history.length;
+    document.getElementById('statFavs').textContent  = favs.length;
+
+    /* This week */
+    var weekAgo = new Date(Date.now() - 7 * 86400000);
+    var thisWeek = history.filter(function (h) {
+      return new Date(h.created_at) > weekAgo;
+    }).length;
+    document.getElementById('statWeek').textContent = thisWeek;
+
+    /* Top tool */
+    if (history.length) {
+      var counts = {};
+      history.forEach(function (h) {
+        counts[h.tool_name] = (counts[h.tool_name] || 0) + 1;
+      });
+      var top = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; })[0];
+      document.getElementById('statStreak').textContent = top ? top.split(' ')[0] : '—';
+    }
+
+    /* Greeting sub */
+    if (history.length === 0) {
+      document.getElementById('greetSub').textContent = 'Start using tools to track your activity here.';
+    } else {
+      document.getElementById('greetSub').textContent = 'You\'ve used ' + history.length + ' tool sessions. Great work!';
+    }
+
+    /* Recent activity */
+    var actWrap = document.getElementById('activityWrap');
+    var recent  = history.slice(0, 8);
+    if (!recent.length) {
+      actWrap.innerHTML = '<div class="empty-state"><span class="ei">🛠️</span><p>No activity yet. Start using any tool!</p><a href="index.html">Browse All Tools</a></div>';
+    } else {
+      var listHtml = '<div class="activity-list">';
+      recent.forEach(function (h) {
+        var page = TOOL_PAGES[h.tool_name] || 'index.html';
+        listHtml += '<a href="' + page + '" class="act-item" style="text-decoration:none">' +
+          '<div class="act-ic">' + getIcon(h.tool_name) + '</div>' +
+          '<div class="act-info"><div class="act-tool">' + (h.tool_name || 'Tool') + '</div>' +
+          '<div class="act-file">' + (h.file_name || h.action_type || '') + '</div></div>' +
+          '<div class="act-time">' + timeAgo(h.created_at) + '</div>' +
+          '</a>';
+      });
+      actWrap.innerHTML = listHtml + '</div>';
+    }
+
+    /* Favourites */
+    var favsWrap = document.getElementById('favsWrap');
+    if (!favs.length) {
+      favsWrap.innerHTML = '<div class="empty-state"><span class="ei">⭐</span><p>No favourite tools yet.<br/>Use the ⭐ button on any tool page to save it here.</p><a href="index.html">Browse All Tools</a></div>';
+    } else {
+      var favHtml = '<div class="favs-grid">';
+      favs.forEach(function (f) {
+        var page = TOOL_PAGES[f.tool_name] || 'index.html';
+        favHtml += '<a href="' + page + '" class="fav-card"><span class="fav-card-ic">' +
+          getIcon(f.tool_name) + '</span>' + (f.tool_name || 'Tool') + '</a>';
+      });
+      favsWrap.innerHTML = favHtml + '</div>';
+    }
+  }).catch(function () {
+    loader.style.display  = 'none';
+    content.style.display = '';
+    document.getElementById('activityWrap').innerHTML = '<div class="empty-state"><span class="ei">⚠️</span><p>Could not load activity. Please try again.</p></div>';
+  });
+}
+
+/* Wait for auth */
+function waitForAuth() {
+  if (window.ilcSupabase && window._ilcCurrentUser !== undefined) {
+    var user = window._ilcCurrentUser;
+    if (!user) { location.replace('login.html?next=dashboard.html'); return; }
+    loadDashboard(window.ilcSupabase, user.id);
+  } else {
+    var ready = false;
+    function tryLoad() {
+      if (ready) return; ready = true;
+      window.ilcSupabase.auth.getSession().then(function (r) {
+        var user = r.data && r.data.session ? r.data.session.user : null;
+        window._ilcCurrentUser = user;
+        if (!user) { location.replace('login.html?next=dashboard.html'); return; }
+        loadDashboard(window.ilcSupabase, user.id);
+      });
+    }
+    document.addEventListener('ilcSupabaseReady', tryLoad);
+    setTimeout(tryLoad, 3000);
+  }
+}
+
+/* Check session directly with Supabase CDN (bypass auth.js timing) */
+document.addEventListener('ilcSupabaseReady', function () {
+  window.ilcSupabase.auth.getSession().then(function (r) {
+    var user = r.data && r.data.session ? r.data.session.user : null;
+    window._ilcCurrentUser = user;
+    if (!user) { location.replace('login.html?next=dashboard.html'); return; }
+    loadDashboard(window.ilcSupabase, user.id);
+  });
+});
+setTimeout(function () {
+  if (document.getElementById('pageLoader').style.display !== 'none') {
+    if (!window.ilcSupabase) {
+      location.replace('login.html?next=dashboard.html');
+    }
+  }
+}, 5000);
+</script>
+</body>
+</html>

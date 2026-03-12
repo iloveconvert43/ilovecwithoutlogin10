@@ -21,6 +21,11 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I crop individual pages differently?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — switch to per-page mode to set different crop boxes for each page."}}, {"@type": "Question", "name": "Does cropping permanently remove content?", "acceptedAnswer": {"@type": "Answer", "text": "Cropping sets a \"crop box\" in the PDF — the hidden content technically still exists in the file."}}, {"@type": "Question", "name": "Will the PDF look different in different viewers?", "acceptedAnswer": {"@type": "Answer", "text": "Most PDF viewers respect the crop box and hide cropped areas."}}, {"@type": "Question", "name": "Can I undo a crop?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — some PDF viewers can reveal the full page. Or re-upload your original."}}, {"@type": "Question", "name": "Is this useful for scanned books?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely — book scans often have large gray borders that waste screen space."}}]}</script>
 <script id="ilc-theme-init">(function(){var t=localStorage.getItem("ilc_theme")||"dark";document.documentElement.setAttribute("data-theme",t);})()</script>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#e53e3e"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="iLoveConvert"/>
+
 
 <meta name="robots" content="index, follow"/>
 
@@ -583,6 +588,10 @@ footer p{font-size:.7rem;color:var(--text3)}
   <a href="qr-tools.html" onclick="ilcToggleMob()">📱 QR &amp; Barcode</a>
   <a href="developer-tools.html" onclick="ilcToggleMob()">⚙️ Developer Tools</a>
   <div class="i-mob-div"></div>
+  <a href="login.html" onclick="ilcToggleMob()">👤 Sign In / Account</a>
+  <a href="dashboard.html" onclick="ilcToggleMob()">📊 Dashboard</a>
+  <a href="history.html" onclick="ilcToggleMob()">🕓 History</a>
+  <div class="i-mob-div"></div>
   <a href="about.html" onclick="ilcToggleMob()">About</a>
   <a href="contact.html" onclick="ilcToggleMob()">Contact</a>
   <a href="privacy.html" onclick="ilcToggleMob()">Privacy Policy</a>
@@ -1085,5 +1094,9 @@ window.addEventListener('scroll',function(){
 </div>
 </div>
 </footer>
+
+<script src="supabase.js"></script>
+<script src="auth.js"></script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("service-worker.js").catch(function(){});</script>
 </body>
 </html>

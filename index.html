@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<link rel="manifest" href="manifest.json"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="iLoveConvert"/>
+<meta name="theme-color" content="#e53e3e"/>
+
+
 <title>iLoveConvert – Free Online PDF, Image, Video & File Converter Tools</title>
 <meta name="description" content="50+ free online tools for PDF, image, video, QR codes and developers. Convert, compress, merge, edit files instantly in your browser. No signup, 100% private."/>
 <meta name="keywords" content="free online converter, pdf tools, image converter, video converter, pdf editor, compress pdf, merge pdf, qr code generator, file converter online free"/>
@@ -251,6 +259,10 @@ footer{background:#12132a;padding:52px 24px 28px;font-family:var(--fb)}
   <a href="video-tools.html" onclick="closeMob()">🎬 Video Tools</a>
   <a href="qr-tools.html" onclick="closeMob()">📱 QR &amp; Barcode</a>
   <a href="developer-tools.html" onclick="closeMob()">⚙️ Developer Tools</a>
+  <div class="mob-div"></div>
+  <a href="login.html" onclick="closeMob()">👤 Sign In / Account</a>
+  <a href="dashboard.html" onclick="closeMob()">📊 Dashboard</a>
+  <a href="history.html" onclick="closeMob()">🕓 History</a>
   <div class="mob-div"></div>
   <a href="about.html" onclick="closeMob()">About</a>
   <a href="contact.html" onclick="closeMob()">Contact</a>
@@ -522,5 +534,9 @@ document.querySelectorAll('.how-step,.wc').forEach(function(el){io.observe(el);}
 /* NAV SCROLL SHADOW */
 window.addEventListener('scroll',function(){document.getElementById('mainNav').style.boxShadow=window.scrollY>8?'0 2px 20px rgba(0,0,0,.1)':'';},{passive:true});
 </script>
+
+<script src="supabase.js"></script>
+<script src="auth.js"></script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("service-worker.js").catch(function(){});</script>
 </body>
 </html>
